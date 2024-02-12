@@ -6,7 +6,7 @@ function start(client: Client) {
   client.onAnyMessage(async (message: Message) => {
     if (
       message.fromMe === true &&
-      message.body.toLowerCase() === "see" &&
+      message.body.toLowerCase() === "!decrypt" &&
       message.quotedMsg
     ) {
       const quotedMessage = message.quotedMsg;
@@ -18,18 +18,17 @@ function start(client: Client) {
         const imageBase64 = `data:${
           quotedMessage.mimetype
         };base64,${mediaData.toString("base64")}`;
-        console.log(message.chatId);
         await client.sendImage(
           message.chatId,
           imageBase64,
           filename,
-          `Decrypted Media`
+          `Here's your fav pap`
         );
         fs.writeFile(filename, mediaData, function (err) {
           if (err) {
             return console.log(err);
           }
-          console.log("The file was saved!");
+          console.log("File berhasil disimpan");
         });
       }
     }
