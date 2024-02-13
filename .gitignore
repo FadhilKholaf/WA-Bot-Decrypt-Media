@@ -1,8 +1,14 @@
 node_modules
+.node-persist
+
 *.jpeg
+*.png
 *.mp4
+
 _IGNORE_COVID_HELPER
-_IGNORE_session
-package-lock.json
 COVID_HELPER.data.json
+
+_IGNORE_session
 session.data.json
+
+.env
